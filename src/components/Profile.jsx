@@ -23,7 +23,7 @@ const Profile = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:7777/profile/view", {
+      const res = await axios.get(`${BASE_URL}/profile/view`, {
         withCredentials: true,
       });
       setUser(res.data);

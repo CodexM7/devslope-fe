@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Signup = () => {
       setLoading(true);
 
       await axios.post(
-        "http://localhost:7777/signup",
+        `${BASE_URL}/signup`,
         {
           ...formData,
           age: Number(formData.age),

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BASE_URL } from "../utils/constants";
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
@@ -9,7 +10,7 @@ const Requests = () => {
   const fetchRequests = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:7777/user/requests/received",
+        `${BASE_URL}/user/requests/received`,
         { withCredentials: true }
       );
       setRequests(res.data?.data || []);
@@ -25,7 +26,7 @@ const Requests = () => {
       setActionLoading(requestId);
 
       await axios.post(
-        `http://localhost:7777/request/review/${status}/${requestId}`,
+        `${BASE_URL}/request/review/${status}/${requestId}`,
         {},
         { withCredentials: true }
       );

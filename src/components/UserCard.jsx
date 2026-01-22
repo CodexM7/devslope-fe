@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { BASE_URL } from "../utils/constants";
 
 const UserCard = ({ profile, onAction }) => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ const UserCard = ({ profile, onAction }) => {
       setLoading(true);
 
       await axios.post(
-        `http://localhost:7777/request/send/${status}/${profile._id}`,
+        `${BASE_URL}/request/send/${status}/${profile._id}`,
         {},
         { withCredentials: true }
       );
